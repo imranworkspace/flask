@@ -32,12 +32,12 @@ def success():
         return render_template('login.html')
 
 @app.route('/view')
-def view():
-    with sqlite3('employees.db') as con:
-        con.raw_factory=sqlite3.Row
-        cur = con.cursor()
-        all = cur.execute('select * from emptb')
-        print('### all',all)
-        return render_template('view.html',all=all)
+def view():  
+    con = sqlite3.connect("employees.db")  
+    con.row_factory = sqlite3.Row  
+    cur = con.cursor()  
+    cur.execute("select * from emptb")  
+    rows = cur.fetchall()  
+    return render_template("view.html",rows = rows)  
 if "__main__"==__name__:
     app.run(debug=True)
