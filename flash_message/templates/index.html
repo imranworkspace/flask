@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}   
+            {% for message in messages %}
+                <p>message</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <h2>welcome to our website</h2><br><br>
+    <a href="login">Login</a>
+</body>
+</html>
